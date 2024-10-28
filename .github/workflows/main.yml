@@ -124,7 +124,8 @@ jobs:
       - uses: codfish/semantic-release-action@9a999e0cdb207de2c9d9d4276860435727818989 # v3.4.1
         with:
           plugins: |
-            [ "@semantic-release/commit-analyzer",
+            [
+              ["@semantic-release/commit-analyzer", {"releaseRules": [{ type: "update", release: "patch" }]}],
               "@semantic-release/release-notes-generator",
               "@semantic-release/github"
             ]
