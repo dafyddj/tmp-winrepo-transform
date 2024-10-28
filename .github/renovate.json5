@@ -1,0 +1,43 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "enabledManagers": [
+    "copier",
+    "custom.regex",
+    "git-submodules",
+  ],
+  "extends": [
+    "config:recommended",
+  ],
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "git-submodules": {
+    "enabled": true
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["\\.sls$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>\\S+?)(?: packageName=(?<packageName>\\S+?))?\\s+- [\"']?(?<currentValue>.+?)[\"']?\\s",
+      ],
+      "autoReplaceStringTemplate": "# renovate: datasource={{{datasource}}} depName={{{depName}}}{{#unless (equals depName packageName)}} packageName={{{packageName}}}{{/unless}}\n- '{{{newValue}}}'\n- '{{{currentValue}}}'\n",
+      "versioningTemplate": "loose",
+    },
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": ["**/*.sls"],
+      "automerge": true,
+      "commitMessageAction": "add",
+      "commitMessageExtra": "{{prettyNewVersion}}",
+      "commitMessageTopic": "`{{depName}}` version",
+      "extends": [
+        ":semanticCommitScopeDisabled",
+        ":semanticCommitType(update)",
+      ],
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "automerge": true,
+    },
+  ],
+}
