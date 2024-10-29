@@ -125,7 +125,12 @@ jobs:
         with:
           plugins: |
             [
-              ["@semantic-release/commit-analyzer", {"releaseRules": [{ type: "update", release: "patch" }]}],
+              [ "@semantic-release/commit-analyzer",
+                  {releaseRules:
+                    [ {type: "update", release: "patch" },
+                      {type: "new", release: "minor"} ]
+                  }
+              ],
               "@semantic-release/release-notes-generator",
               "@semantic-release/github"
             ]
