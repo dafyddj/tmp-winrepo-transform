@@ -1,24 +1,25 @@
 const commitTypes = [
-	{ breaking: true, release: "major" },
-	{ type: "feat", section: "Features" },
-	{ type: "fix", section: "Bug Fixes" },
+	{ type: "rem", section: "Removals" },
 	{ type: "new", section: "New Packages" },
 	{ type: "update", section: "Updates" },
-	{ type: "del", section: "Removals" },
-	{ type: "docs", section: "Documentation" },
+	{ type: "feat", section: "Features" },
+	{ type: "fix", section: "Bug Fixes" },
 	{ type: "test", section: "Testing" },
-	{ type: "perf", section: "Performance Improvements" },
+	{ type: "ci", section: "Continuous Integration" },
 	{ type: "revert", section: "Reversions" },
+	{ type: "docs", section: "Documentation" },
+	{ type: "perf", section: "Performance Improvements" },
 	{ type: "refactor", section: "Code Refactoring" },
 	{ type: "style", section: "Style Changes" },
-	{ type: "ci", section: "Continuous Integration" },
 	{ type: "chore", section: "Maintenance" },
 ];
 
+// Default rules can be found in `lib/default-release-rules.js` that cover
+// feat, fix, perf and breaking
 const releaseRules = [
 	{ type: "update", release: "patch" },
 	{ type: "new", release: "minor" },
-	{ type: "del", release: "major" },
+	{ type: "rem", release: "major" },
 ];
 
 const config = {
