@@ -1,0 +1,10 @@
+_exclude:
+  - LICENSE
+  - '*.sls'
+  - .copier-answers.yml
+  - .tool-versions
+  - copier.yaml
+  - full_run_win.yml
+  - renovate.json5
+  - .cicd
+  - .git
