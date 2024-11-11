@@ -1,5 +1,6 @@
 {% load_yaml as versions -%}
 # renovate: datasource=github-releases depName=renovate packageName=renovatebot/renovate
+- '39.9.4'
 - '39.9.3'
 - '39.9.2'
 - '39.9.1'
