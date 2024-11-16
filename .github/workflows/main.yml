@@ -125,6 +125,6 @@ jobs:
       - run: cat run_number
       - uses: codfish/semantic-release-action@9a999e0cdb207de2c9d9d4276860435727818989 # v3.4.1
         with:
-          additional-packages: conventional-changelog-conventionalcommits@7.0.2
+          additional-packages: '["@semantic-release/git@10.0.1", "conventional-changelog-conventionalcommits@7.0.2"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
