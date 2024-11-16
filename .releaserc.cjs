@@ -14,12 +14,21 @@ const commitTypes = [
 	{ type: "chore", section: "Maintenance" },
 ];
 
+<<<<<<< before updating
 // Default rules can be found in `lib/default-release-rules.js` that cover
 // feat, fix, perf and breaking
 const releaseRules = [
 	{ type: "update", release: "patch" },
 	{ type: "new", release: "minor" },
 	{ type: "rem", release: "major" },
+=======
+// Default rules can be found in `github.com/semantic-release/commit-analyzer/lib/default-release-rules.js`
+// that cover feat, fix, perf and breaking
+const releaseRules = [
+	{ type: "rem", release: "major" },
+	{ type: "new", release: "minor" },
+	{ type: "update", release: "patch" },
+>>>>>>> after updating
 ];
 
 const config = {
