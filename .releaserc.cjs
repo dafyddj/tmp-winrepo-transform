@@ -26,6 +26,7 @@ const config = {
 	plugins: [
 		["@semantic-release/commit-analyzer", { releaseRules: releaseRules }],
 		"@semantic-release/release-notes-generator",
+		["@semantic-release/exec", { prepareCmd: "echo Preparing" }],
 		["@semantic-release/git", { assets: ["run_number"] }],
 		"@semantic-release/github",
 	],
