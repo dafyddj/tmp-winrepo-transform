@@ -30,10 +30,9 @@ const config = {
 			"@semantic-release/exec",
 			{
 				prepareCmd:
-					"git add json && git stash && git switch json && git stash pop",
+					"git add json && git stash && git switch json && git stash pop && git commit -m 'chore(release): add json' && git push",
 			},
 		],
-		["@semantic-release/git", { assets: ["json/run_number"] }],
 		"@semantic-release/github",
 	],
 	preset: "conventionalcommits",
