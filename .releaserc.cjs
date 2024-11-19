@@ -26,8 +26,11 @@ const config = {
 	plugins: [
 		["@semantic-release/commit-analyzer", { releaseRules: releaseRules }],
 		"@semantic-release/release-notes-generator",
-		["@semantic-release/exec", { prepareCmd: "echo Preparing" }],
-		["@semantic-release/git", { assets: ["run_number"] }],
+		[
+			"@semantic-release/exec",
+			{ prepareCmd: "git stash && git switch json && git stash pop" },
+		],
+		["@semantic-release/git", { assets: ["json/run_number"] }],
 		"@semantic-release/github",
 	],
 	preset: "conventionalcommits",
