@@ -28,7 +28,10 @@ const config = {
 		"@semantic-release/release-notes-generator",
 		[
 			"@semantic-release/exec",
-			{ prepareCmd: "git stash && git switch json && git stash pop" },
+			{
+				prepareCmd:
+					"git add json && git stash && git switch json && git stash pop",
+			},
 		],
 		["@semantic-release/git", { assets: ["json/run_number"] }],
 		"@semantic-release/github",
