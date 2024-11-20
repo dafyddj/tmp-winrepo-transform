@@ -26,13 +26,6 @@ const config = {
 	plugins: [
 		["@semantic-release/commit-analyzer", { releaseRules: releaseRules }],
 		"@semantic-release/release-notes-generator",
-		[
-			"@semantic-release/exec",
-			{
-				prepareCmd:
-					"git add json && git stash && git switch json && git stash pop && git add json && git commit -m 'chore(release): add json' && git push",
-			},
-		],
 		"@semantic-release/github",
 	],
 	preset: "conventionalcommits",
