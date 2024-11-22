@@ -27,7 +27,6 @@ const config = {
 		["@semantic-release/commit-analyzer", { releaseRules: releaseRules }],
 		"@semantic-release/release-notes-generator",
 		"@semantic-release/github",
-		"@qiwi/semantic-release-gh-pages-plugin",
 	],
 	preset: "conventionalcommits",
 	presetConfig: {
