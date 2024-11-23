@@ -168,3 +168,10 @@ jobs:
             deploy: ${{ steps.sem-rel.outputs.git-tag }}
           destination_dir: ${{ steps.sem-rel.outputs.git-tag }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: peaceiris/actions-gh-pages@v4.0.0
+        if: fromJSON(steps.sem-rel.outputs.new-release-published)
+        with:
+          commit_message: |
+            deploy: ${{ steps.sem-rel.outputs.git-tag }} on ${{ steps.sem-rel.outputs.channel }}
+          destination_dir: ${{ steps.sem-rel.outputs.channel }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
