@@ -6,5 +6,4 @@ _exclude:
   - copier.yaml
   - full_run_win.yml
   - renovate.json5
-  - .cicd
   - .git
