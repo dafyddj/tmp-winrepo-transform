@@ -9,7 +9,7 @@ fi
 readonly OUTPUT_DIR="${OUTPUT_DIR:-public}"
 
 process_repo() {
-  # Produce the desired output to a named file
+  # For each defined package, output a list of its versions to a file <package>.json in the output directory
   echo "$1" | jq -r '.local.repo | to_entries[] | "\(.key).json"' | while read -r filename; do
     echo "$1" | jq --arg pkg "${filename%.json}" \
        '{"releases": [ .local.repo[$pkg] | keys[] | {version: .} ]}' > "$OUTPUT_DIR/$filename"
@@ -25,6 +25,5 @@ else
   if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
   fi
-
   process_repo "$repo_as_json"
 fi
